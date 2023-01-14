@@ -13,7 +13,11 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = this.setBinding()
         setContentView(binding.root)
+
+        onViewReady(savedInstanceState)
     }
+
+    abstract fun onViewReady(savedInstanceState: Bundle?)
 
     abstract fun setBinding(): T
 
